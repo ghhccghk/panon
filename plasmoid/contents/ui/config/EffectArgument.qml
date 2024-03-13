@@ -1,17 +1,17 @@
-import QtQuick 2.0
-import QtQuick.Layouts 1.1
-import QtQuick.Controls 2.0 as QQC2
+import QtQuick
+import QtQuick.Layouts
+import QtQuick.Controls as QQC2
+import org.kde.kcmutils as KCM
 
-import org.kde.kirigami 2.3 as Kirigami
-
-RowLayout {
-
+import org.kde.kirigami as Kirigami
+KCM.SimpleKCM {
     property var root
     property int index
     property var effectArgValues
 
     property var vali:null
 
+  RowLayout {
     Kirigami.FormData.label: visible?root.effect_arguments[index]["name"]+":":""
     visible:root.effect_arguments.length>index
     QQC2.TextField {
@@ -22,5 +22,5 @@ RowLayout {
         }
         validator:vali
     }
+  }
 }
-

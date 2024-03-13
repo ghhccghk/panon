@@ -1,17 +1,12 @@
-import QtQuick 2.0
-import QtQuick.Layouts 1.1
-import QtQuick.Controls 2.0 as QQC2
+import QtQuick
+import QtQuick.Layouts
+import QtQuick.Controls as QQC2
 
-import org.kde.kirigami 2.3 as Kirigami
-import org.kde.plasma.core 2.0 as PlasmaCore
+import org.kde.kirigami as Kirigami
+import org.kde.kcmutils as KCM
+import org.kde.plasma.core as PlasmaCore
 
-Kirigami.FormLayout {
-    id:root
-
-    anchors.right: parent.right
-    anchors.left: parent.left
-
-
+KCM.SimpleKCM {
     readonly property bool vertical: plasmoid.formFactor == PlasmaCore.Types.Vertical || (plasmoid.formFactor == PlasmaCore.Types.Planar && plasmoid.height > plasmoid.width)
 
     property alias cfg_fps: fps.value
@@ -25,6 +20,14 @@ Kirigami.FormLayout {
 
     property alias cfg_gravity:gravity.currentIndex
     property alias cfg_inversion:inversion.checked
+
+  Kirigami.FormLayout {
+    id:root
+
+    anchors.right: parent.right
+    anchors.left: parent.left
+
+
 
     QQC2.SpinBox {
         id:fps
@@ -111,5 +114,5 @@ Kirigami.FormLayout {
             text: "0.4.5"
         }
     }
-
+  }
 }

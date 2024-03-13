@@ -1,6 +1,7 @@
-import QtQuick 2.0
-import QtWebSockets 1.0
-import org.kde.plasma.core 2.0 as PlasmaCore
+import QtQuick
+import QtWebSockets
+import org.kde.plasma.core as PlasmaCore
+import org.kde.plasma.plasma5support 2.0 as P5Support
 import "utils.js" as Utils
 /*
  * This module starts a python back-end client, 
@@ -14,7 +15,7 @@ import "utils.js" as Utils
  */
 Item{
 
-    readonly property var cfg:plasmoid.configuration
+    readonly property var cfg:Plasmoid.configuration
 
     property variant queue
 
@@ -60,7 +61,7 @@ Item{
         return cmd
     }
 
-    PlasmaCore.DataSource {
+    P5Support.DataSource {
         engine: 'executable'
         connectedSources: [startBackEnd]
         onNewData:{

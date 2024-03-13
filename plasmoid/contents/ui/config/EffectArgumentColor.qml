@@ -1,11 +1,15 @@
-import QtQuick 2.0
-import org.kde.kirigami 2.3 as Kirigami
-import org.kde.kquickcontrols 2.0 as KQuickControls
+import QtQuick
+import org.kde.kirigami as Kirigami
+import org.kde.kcmutils as KCM
+import org.kde.kquickcontrols as KQuickControls
+import org.kde.kcmutils as KCM
 
-KQuickControls.ColorButton {
+KCM.SimpleKCM {
     property var root
     property int index
     property var effectArgValues
+
+KQuickControls.ColorButton {
 
     visible:root.effect_arguments.length>index
     Kirigami.FormData.label: visible?root.effect_arguments[index]["name"]+":":""
@@ -20,5 +24,5 @@ KQuickControls.ColorButton {
         effectArgValues[index]=btn.color
         root.cfg_effectArgTrigger=!root.cfg_effectArgTrigger
     }
+  }
 }
-

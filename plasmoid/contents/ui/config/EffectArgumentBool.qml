@@ -1,13 +1,15 @@
-import QtQuick 2.0
-import QtQuick.Layouts 1.1
-import QtQuick.Controls 2.0 as QQC2
+import QtQuick
+import QtQuick.Layouts
+import QtQuick.Controls as QQC2
 
-QQC2.CheckBox {
+import org.kde.kcmutils as KCM
 
+KCM.SimpleKCM {
     property var root
     property int index
     property var effectArgValues
 
+  QQC2.CheckBox {
 
     visible:root.effect_arguments.length>index
     text: visible?root.effect_arguments[index]["name"]:""
@@ -17,4 +19,5 @@ QQC2.CheckBox {
         effectArgValues[index]=checked
         root.cfg_effectArgTrigger=!root.cfg_effectArgTrigger
     }
+  }
 }

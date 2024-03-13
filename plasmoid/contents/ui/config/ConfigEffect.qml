@@ -1,23 +1,26 @@
-import QtQuick 2.0
-import QtQuick.Layouts 1.1
-import QtQuick.Controls 2.0 as QQC2
+import QtQuick
+import QtQuick.Layouts
+import QtQuick.Controls as QQC2
 
-import org.kde.kirigami 2.3 as Kirigami
-import org.kde.plasma.core 2.0 as PlasmaCore
-import org.kde.newstuff 1.1 as NewStuff
+import org.kde.plasma.plasma5support as Plasma5Support
+import org.kde.kcmutils as KCM
+import org.kde.kirigami  as Kirigami
+import org.kde.plasma.core as PlasmaCore
+import org.kde.newstuff as NewStuff
 
 import "utils.js" as Utils
-
-Kirigami.FormLayout {
-    id:root
-
-    anchors.right: parent.right
-    anchors.left: parent.left
+KCM.SimpleKCM {
 
     property string cfg_visualEffect
 
     property var cfg_effectArgValues:[]
     property bool cfg_effectArgTrigger:false
+
+  Kirigami.FormLayout {
+    id:root
+
+    anchors.right: parent.right
+    anchors.left: parent.lef
 
     NewStuff.Button {
         downloadNewWhat: i18n("Effects")
@@ -71,7 +74,7 @@ Kirigami.FormLayout {
     property var effect_arguments:[]
 
      
-    PlasmaCore.DataSource {
+    Plasma5Support.DataSource {
         engine: 'executable'
         connectedSources: {
             // Load visual effects when shaderOptions is empty.
@@ -138,4 +141,5 @@ Kirigami.FormLayout {
             }
         }
     }
+  }
 }

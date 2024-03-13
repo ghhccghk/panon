@@ -1,18 +1,18 @@
-import QtQuick 2.0
-import QtQuick.Layouts 1.1
+import QtQuick
+import QtQuick.Layouts
 
-import org.kde.plasma.plasmoid 2.0
-import org.kde.plasma.core 2.0 as PlasmaCore
+import org.kde.plasma.plasmoid
+import org.kde.plasma.core as PlasmaCore
 
-import QtQuick.Controls 2.0 as QQC2
+import QtQuick.Controls as QQC2
 
 import "utils.js" as Utils
 
 Item{
     id:root
-    readonly property var cfg:plasmoid.configuration
+    readonly property var cfg:Plasmoid.configuration
 
-    property bool vertical: (plasmoid.formFactor == PlasmaCore.Types.Vertical)
+    property bool vertical: (Plasmoid.formFactor == PlasmaCore.Types.Vertical)
 
     // Layout.minimumWidth:  cfg.autoHide ? animatedMinimum: -1
     Layout.preferredWidth: vertical ?-1: animatedMinimum
@@ -24,7 +24,7 @@ Item{
     readonly property int gravity:{
         if(cfg.gravity>0)
             return cfg.gravity
-        switch(plasmoid.location){
+        switch(Plasmoid.location){
             case PlasmaCore.Types.TopEdge:
             return 2
             case PlasmaCore.Types.BottomEdge:

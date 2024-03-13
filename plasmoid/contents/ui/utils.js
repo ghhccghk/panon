@@ -1,5 +1,5 @@
 function get_root() {
-    var p_ui = plasmoid.file("ui")
+    var p_ui = "/home/ghhc/panon/plasmoid/contents/ui/"
     p_ui = p_ui.split('/')
     p_ui.pop(-1)
     return p_ui.join('/')

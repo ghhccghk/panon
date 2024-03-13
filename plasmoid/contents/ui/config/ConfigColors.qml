@@ -1,15 +1,13 @@
-import QtQuick 2.0
-import QtQuick.Layouts 1.1
-import QtQuick.Controls 2.0 as QQC2
+import QtQuick
+import QtQuick.Layouts
+import QtQuick.Controls as QQC2
 
-import org.kde.kirigami 2.3 as Kirigami
+import org.kde.kirigami as Kirigami
+import org.kde.kcmutils as KCM
 
 import "utils.js" as Utils
 
-Kirigami.FormLayout {
-
-    anchors.right: parent.right
-    anchors.left: parent.left
+KCM.SimpleKCM {
 
     property alias cfg_colorSpaceHSL: colorSpaceHSL.checked
     property alias cfg_colorSpaceHSLuv: colorSpaceHSLuv.checked
@@ -22,6 +20,11 @@ Kirigami.FormLayout {
     property alias cfg_hslLightness     :hslLightness.value
     property alias cfg_hsluvSaturation  :hsluvSaturation.value
     property alias cfg_hsluvLightness   :hsluvLightness.value
+
+  Kirigami.FormLayout {
+
+    anchors.right: parent.right
+    anchors.left: parent.left
 
     QQC2.Button{
         id: randomColor
@@ -141,4 +144,5 @@ Kirigami.FormLayout {
     Item {
         Kirigami.FormData.isSection: true
     }
+  }
 }

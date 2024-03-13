@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick
 
 /*
  * The length of this queue is 2. The queue rejects new 
@@ -9,7 +9,7 @@ Item{
     // When only spectrum data is enabled, receive raw data to reduce cpu usage.
     property bool only_spectrum:false
 
-    readonly property var cfg:plasmoid.configuration
+    readonly property var cfg:configuration
 
     property variant imgsReady:pt0
 
